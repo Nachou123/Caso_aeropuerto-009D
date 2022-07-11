@@ -25,7 +25,8 @@
                   nombre: "required",
                   destino: "required",
                   fono: "required", 
-                  rut: "required", 
+                  rut: "required",
+                  asientos: "required", 
                   
               }, //rules
           messages: {
@@ -50,6 +51,11 @@
 
               rut:{
                   required: 'Ingrese rut del cliente',
+                  minlength: 'Cantidad de digitos insuficiente'
+              },
+
+              asientos:{
+                  required: 'Ingrese numeros de asientos que va a utilizar',
                   minlength: 'Cantidad de digitos insuficiente'
               },
              
@@ -112,10 +118,7 @@
         <input type="text" name="nombre" id="nombre" class="form-control"  minlength="1" required>
         <br>
       </div>
-        
-      
-        
- 
+             
       <div class="form-group">
 
         <label>destino: </label>
@@ -130,6 +133,10 @@
 
         <label>Telefono: </label>
         <input type="number" name="fono" class="form-control"  minlength="9" required >
+        <br>
+
+        <label>nro de asientos: </label>
+        <input type="number" name="fono" class="form-control"  minlength="1" required >
         <br>
       
         </div>
