@@ -1,0 +1,29 @@
+.fondo{
+    background-color: rgb(40, 40, 182);
+}
+h1{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 40px;
+}
+body{
+    background-color: rgb(111, 111, 114);
+}
+
+
+
+.error-control {
+    border: 1px solid rgb(255, 0, 0);
+}
+
+label.error {
+    color: rgb(255, 0, 0);
+    width: 300px;
+    font-size: 0.8em;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+button {
+    clear: both;
+    float: left;
+}
