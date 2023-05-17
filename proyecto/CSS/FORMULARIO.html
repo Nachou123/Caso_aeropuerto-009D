@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/estilo.css">
+    <link rel="icon" href="IMAGENES/logo.png">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <title>Cuenta/La Jardineria</title>
+
+    <script>
+             $(function() 
+      {
+        $("#mi-formulario").validate({
+             rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: "required",
+                    nombre: "required",
+                    apellido: "required",
+                    comuna: {
+                        required: true,
+                    },
+    
+                    fono: "required",
+                    password2: {
+                        required: true,
+                        equalTo: "#password"
+                    }   
+                    
+                }, //rules
+            messages: {
+                email: {
+                    required: 'Ingresa tu correo electrónico',
+                    email: 'Formato de correo no válido'
+                },
+                comuna: {
+                    required: 'Ingresa comuna',
+                    comuna: 'Debe ingresar una comuna'
+                },
+                
+                password: {
+                    required: 'Ingresa una contraseña',
+                    minlength: 'Caracteres insuficientes'
+                },
+                nombre:{
+                    required: 'Ingrese su Nombre',
+                    minlength: 'Caracteres insfucientes'
+                },
+    
+                apellido:{
+                    required: 'Ingrese su Apellido',
+                    minlength: 'Caracteres insfucientes'
+                },
+                fono:{
+                    required: 'Ingrese un número de celular',
+                    minlength: 'Cantidad de digitos insuficiente'
+                },
+               
+                password2: {
+                    required: 'Reingresa la contraseña',
+                    equalTo: 'Las contraseñas ingresadas no coinciden',
+                    minlength: 'Caracteres insuficientes'
+    
+                }
+            }
+        }); 
+    });
+    
+    function CambiarMayusculas()
+        {
+            var a = document.getElementById('nombre');
+            a.value = a.value.toUpperCase();
+        }
+        function CambiaColor(a)
+        {
+            a.style.background = "chartreuse";
+        }
+    
+    </script> 
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="INDEX.html">
+            <img src="IMAGENES/logo.png" width="50px" height="50px">
+        </a>
+        <div class="collapse navbar-collapse" id="opciones">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="INDEX.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ACERCA DE NOSOTROS.html">Acerca de nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="PRODUCTOS.html">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="FORMULARIO.html">Cuenta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="CambioMoneda.html">Cambio de Moneda</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+     
+      <div class="container">
+          
+          <div class="row jumbotron">
+            <h3>Formulario de registro: </h3>
+              <div class="col-lg-12">
+        <form id="mi-formulario" action="" method="post">
+            
+            <div class="form-group">
+
+            <label>Nombres: </label>
+            <input type="text" name="nombre" id="nombre" class="form-control"  
+            minlength="1" required
+            onchange="CambiarMayusculas()"  onfocus="CambiaColor(this)">
+            
+            <br><br>
+
+            <label>Apellidos: </label>
+            <input type="text" name="apellido" class="form-control" 
+            minlength="1" required  onfocus="CambiaColor(this)">
+            
+            <br><br>
+            
+
+            <label for="comuna">Comuna: </label>
+            <select name="comuna">
+                <option value="">Elija una comuna...</option>
+                <option value="maipu">Maipú</option>
+                <option value="cerrillos">Cerrillos</option>
+                <option value="estacioncentral">Estación Central</option>
+                <option value="sanbernardo">San Bernardo </option>
+                <option value="lascondes">Las Condes</option>
+                <option value="providencia">Providencia</option>
+                <option value="lareina">La Reina</option>
+                <option value="pudahuel">Pudahuel</option>
+            </select>
+
+            <br><br>
+
+            <label for="fecha">Fecha de nacimiento</label>
+            <input type="date" id="fecha" name="fecha" 
+            required min="1940-01-01" max="2018-12-31" class="form-control">
+            
+            <br><br>
+
+            <label>Correo Electrónico: </label>
+            <input type="text" name="email" class="form-control" 
+            required placeholder="nombre@dominio.cl" 
+            onfocus="CambiaColor(this)">
+            
+            <br><br>
+            
+            <label for="fono">Teléfono</label>
+                <input type="number" id="fono" name="fono" required
+                    minlength="9" class="form-control">
+          
+            <br><br>
+
+            <label>Contraseña:</label>
+            <input type="password" id="password" class="form-control" 
+            name="password" minlength="8" onfocus="CambiaColor(this)">
+            
+            <br><br>
+          
+            <label for="pass">Contraseña</label>
+            <input type="password" id="pass" name="pass" required
+                    minlength="8" class="form-control">
+            
+            <br><br>
+
+            <label for="pass2">Repetir contraseña</label>
+            <input type="password" id="pass2" name="pass2" required
+                    minlength="8" class="form-control">    
+
+            
+            </div>
+
+            
+
+            <input type="submit" class="btn btn-dark" value="Enviar">
+        
+          </form>
+        </div>
+        </div>  
+        </div>
+        <br> <br> <br>
+
+        <footer>
+            <img src="IMAGENES/logo.png" width="70px" height="70px">
+            <ul>
+                <a href="https://es-la.facebook.com/" target="_blank">
+                    <img src="IMAGENES/face.png" width="50px" height="50px">
+                </a></li>
+                <a href="https://www.instagram.com/ " target="blank">
+                    <img src="IMAGENES/insta.png" width="50px" height="50px">
+                </a></li>
+                <a href=" https://twitter.com/?lang=es" target="blank">
+                    <img src="IMAGENES/tw.png" width="50px" height="50px">
+                </a></li>
+                
+            </ul>
+            <p>©Copyright 2023. 
+                Maximiliano Pino -
+                Fernanda Osorio -
+                Maicol Rivas. Derechos Reservados.</p>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+</body>
+</html>
